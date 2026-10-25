@@ -1,0 +1,17 @@
+.git
+.gitignore
+.venv
+__pycache__
+*.pyc
+.pdm-python
+.pdm-build
+.pytest_cache
+.ipynb_checkpoints
+.cursor
+.vscode
+**/.ipynb_checkpoints
+**/*.egg-info
+.mypy_cache
+.ruff_cache
+htmlcov
+.coverage

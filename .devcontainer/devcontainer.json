@@ -1,0 +1,35 @@
+{
+  "name": "Retailer MachineLearningWorks (PDM)",
+  "build": {
+    "context": "..",
+    "dockerfile": "../Dockerfile"
+  },
+  "workspaceFolder": "/workspace",
+  "overrideCommand": true,
+  "postCreateCommand": "pdm install && pdm run python scripts/check_pdm_env.py",
+  "forwardPorts": [8888],
+  "portsAttributes": {
+    "8888": {
+      "label": "JupyterLab",
+      "onAutoForward": "notify"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.defaultInterpreterPath": "/workspace/.venv/bin/python",
+        "python.terminal.activateEnvironment": true,
+        "pdm.pdmPath": "pdm"
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-toolsai.jupyter"
+      ]
+    }
+  },
+  "containerEnv": {
+    "PDM_CHECK_UPDATE": "false",
+    "PDM_USE_VENV": "true"
+  }
+}

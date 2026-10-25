@@ -1,0 +1,16 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: machinelearningworks:pdm
+    working_dir: /workspace
+    volumes:
+      - .:/workspace
+      - pdm-venv:/workspace/.venv
+    ports:
+      - "8888:8888"
+    command: ["pdm", "run", "jupyter"]
+
+volumes:
+  pdm-venv:
